@@ -8,14 +8,14 @@ import Contact from './components/Contact'
 function App() {
 
   return (
-    <>
+    <div className='w-screen overflow-x-hidden bg-[#f3ede5]'>
       <Header />
       <Hero />
       <About />
       <Projects />
       <Approach />
       <Contact />
-    </>
+    </div>
   )
 }
 
