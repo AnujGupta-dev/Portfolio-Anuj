@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { cn } from '../lib/cn';
 import { Menu, X } from 'lucide-react';
+import ResumeModal from './ResumeModal';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +46,10 @@ const Header = () => {
         </a>
 
         <div className="hidden md:flex items-center space-x-8">
-          <NavLinks scrollToSection={scrollToSection} />
+          <NavLinks 
+            scrollToSection={scrollToSection} 
+            openResumeModal={() => setIsResumeModalOpen(true)} 
+          />
         </div>
 
         <button
@@ -52,10 +57,15 @@ const Header = () => {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {!isMobileMenuOpen && <Menu/>}
-          {isMobileMenuOpen && <X/>}
+          {!isMobileMenuOpen && <Menu />}
+          {isMobileMenuOpen && <X />}
         </button>
       </div>
+      
+      <ResumeModal 
+        isOpen={isResumeModalOpen} 
+        onClose={() => setIsResumeModalOpen(false)} 
+      />
 
       <div
         className={cn(
@@ -75,11 +85,20 @@ const Header = () => {
         <nav className="flex flex-col space-y-6 text-lg">
           <a
             href="#home"
-            className="hover:text-orangery-600 transition-colors cursor-pointer"
+            className="hover:text-amber-600 transition-colors cursor-pointer"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Home
           </a>
+          <button
+            className="text-left hover:text-amber-600 transition-colors cursor-pointer"
+            onClick={() => { 
+              setIsResumeModalOpen(true); 
+              setIsMobileMenuOpen(false); 
+            }}
+          >
+            Resume
+          </button>
           <button
             className="text-left hover:text-orangery-600 transition-colors cursor-pointer"
             onClick={() => { scrollToSection('about'); setIsMobileMenuOpen(false); }}
@@ -104,16 +123,23 @@ const Header = () => {
   );
 };
 
-const NavLinks = ({ scrollToSection }) => (
+const NavLinks = ({ scrollToSection, openResumeModal }) => (
   <>
     <button
-      className="text-sm font-medium hover:text-orangery-600 transition-colors cursor-pointer"
+      className="text-sm font-medium hover:text-amber-600 transition-colors cursor-pointer"
       onClick={() => scrollToSection('home')}
     >
       Home
     </button>
     <button
-      className="text-sm font-medium hover:text-orangery-600 transition-colors cursor-pointer"
+      className="text-sm font-medium hover:text-amber-500 transition-colors"
+      onClick={openResumeModal}
+    >
+      Resume
+    </button>
+
+    <button
+      className="text-sm font-medium hover:text-amber-600 transition-colors cursor-pointer"
       onClick={() => scrollToSection('about')}
     >
       About
