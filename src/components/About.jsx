@@ -79,11 +79,33 @@ const About = () => {
     "Currently building an AI Voice learning app SAAS product.",
   ];
 
-  const skills = {
-    frontend: ["Next.js", "React", "TypeScript", "JavaScript", "Tailwind CSS"],
-    backend: ["Node.js", "MongoDB", "Prisma"],
-    other: ["Firebase"],
-  };
+ const skills = {
+  frontend: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  backend: [
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Prisma",
+    "Firebase",
+    "REST APIs"
+  ],
+  other: [
+    "Git",
+    "GitHub",
+    "AI Integrations",
+    "English (Conversational)",
+    "Team Collaboration",
+    "Problem Solving"
+  ]
+};
 
   return (
     <section
