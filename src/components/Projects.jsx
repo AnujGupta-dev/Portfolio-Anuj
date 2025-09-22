@@ -71,7 +71,7 @@ const Projects = () => {
       description:
         "An AI-powered app that helps you track and manage expenses with smart insights and analytics, using intelligent scripts to scan and analyze your spending patterns.",
       image: "/spendly.png",
-      technologies: ["Next.js", "Tailwind", "TypeScript", "Prisma", "Clerk"],
+      technologies: ["Next.js", "Tailwind", "TypeScript", "Prisma ORM","Supabase", "Clerk"],
       link: "https://wealth-git-main-anujguptas-projects.vercel.app/",
       gitlink:"https://github.com/AnujGupta-dev/Wealth"
     },
@@ -81,7 +81,7 @@ const Projects = () => {
       description:
         "An AI-powered interview preparation app that generates tailored questions and answers based on job descriptions.",
       image: "/ai-interview.png",
-      technologies: ["React", "Tailwind", "TypeScript", "Firebase", "Clerk"],
+      technologies: ["React.js", "Tailwind", "TypeScript", "Firebase", "Clerk"],
       link: "https://ai-mock-interview-ebba4.web.app/",
       gitlink:"https://github.com/AnujGupta-dev/ai-interview-platform"
     },
@@ -92,7 +92,7 @@ const Projects = () => {
         "AI trip planner app that generates complete travel itineraries in seconds.",
       image: "/trip-planner.png",
       technologies: [
-        "React",
+        "React.js",
         "Tailwind",
         "JavaScript",
         "MongoDB",
