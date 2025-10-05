@@ -9,7 +9,7 @@ import JohnWick from './components/JohnWick'
 function App() {
 
   return (
-    <div className='w-screen overflow-x-hidden'>
+    <div className='w-screen overflow-x-hidden font-custom font-[800]'>
       <JohnWick/>
       <Header />
       <Hero />
