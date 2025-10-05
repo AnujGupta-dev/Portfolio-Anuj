@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const About = () => {
   const sectionRef = useRef(null);
@@ -79,120 +79,103 @@ const About = () => {
     "Currently building an AI Voice learning app SAAS product.",
   ];
 
- const skills = {
-  frontend: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "Tailwind CSS",
-    "HTML",
-    "CSS"
-  ],
-  backend: [
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Prisma",
-    "Firebase",
-    "REST APIs"
-  ],
-  other: [
-    "Git",
-    "GitHub",
-    "AI Integrations",
-    "English (Conversational)",
-    "Team Collaboration",
-    "Problem Solving"
-  ]
-};
+  const skills = {
+    frontend: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "HTML",
+      "CSS",
+    ],
+    backend: ["Node.js", "Express.js", "MongoDB", "Prisma", "Firebase", "REST APIs"],
+    other: [
+      "Git",
+      "GitHub",
+      "AI Integrations",
+      "English (Conversational)",
+      "Team Collaboration",
+      "Problem Solving",
+    ],
+  };
 
   return (
-    <section
-      ref={sectionRef}
-      id="about"
-      className="py-20 md:py-32 bg-[#faf9f6]"
-    >
+    <section ref={sectionRef} id="about" className="py-20 md:py-32 bg-red text-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div>
-            <h2
-              ref={titleRef}
-              className="text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-semibold tracking-tight text-center text-[#2f2a1e] mb-16"
-            >
-              About Me
-            </h2>
-          </div>
+        <div className="mx-auto max-w-4xl">
+          <h2
+            ref={titleRef}
+            className="mb-16 text-center text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl"
+          >
+            About Me
+          </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+          <div className="grid gap-12 md:grid-cols-2 md:gap-16">
             <div ref={leftColumnRef}>
-              <div>
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-['Playfair_Display'] font-semibold mb-6 text-[#b07d62]">
-                  Who I Am
-                </h3>
-                <div className="space-y-4">
-                  {aboutPoints.map((point, index) => (
-                    <p
-                      key={index}
-                      className="font-['Spectral'] text-[1.05rem] text-[#5a5443] leading-relaxed"
-                    >
-                      {point}
-                    </p>
-                  ))}
-                </div>
+              <h3 className="mb-6 text-xl font-semibold md:text-2xl lg:text-3xl">
+                Who I Am
+              </h3>
+              <div className="space-y-4">
+                {aboutPoints.map((point, index) => (
+                  <p key={index} className="text-[1.05rem] leading-relaxed">
+                    {point}
+                  </p>
+                ))}
               </div>
             </div>
 
             <div ref={rightColumnRef}>
-              <div>
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-['Playfair_Display'] font-semibold mb-6 text-[#b07d62]">
-                  Technical Skills
-                </h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-mono uppercase tracking-wide font-medium mb-3 text-[#2f2a1e] text-[1.1rem]">
-                      Frontend
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.frontend.map((skill, index) => (
-                        <span
-                          key={index}
-                          className="skill-tag px-3 py-1 bg-[#d4a373] text-white rounded-full text-sm md:text-[1rem] shadow"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+              <h3 className="mb-6 text-xl font-semibold md:text-2xl lg:text-3xl">
+                Technical Skills
+              </h3>
+
+              <div className="space-y-6">
+                <div>
+                  <h4 className="mb-3 text-[1.1rem] font-mono uppercase tracking-wide font-medium">
+                    Frontend
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.frontend.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="skill-tag rounded-full bg-box px-3 py-1 text-sm md:text-[1rem] shadow"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="font-mono uppercase tracking-wide font-medium mb-3 text-[#2f2a1e] text-[1.1rem]">
-                      Backend
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.backend.map((skill, index) => (
-                        <span
-                          key={index}
-                          className="skill-tag px-3 py-1 bg-[#d4a373] text-white rounded-full text-sm md:text-[1rem] shadow"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                </div>
+
+                <div>
+                  <h4 className="mb-3 text-[1.1rem] font-mono uppercase tracking-wide font-medium">
+                    Backend
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.backend.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="skill-tag rounded-full bg-box px-3 py-1 text-sm md:text-[1rem] shadow"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="font-mono uppercase tracking-wide font-medium mb-3 text-[#2f2a1e] text-[1.1rem]">
-                      Other
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.other.map((skill, index) => (
-                        <span
-                          key={index}
-                          className="skill-tag px-3 py-1 bg-[#d4a373] text-white rounded-full text-sm md:text-[1rem] shadow"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                </div>
+
+                <div>
+                  <h4 className="mb-3 text-[1.1rem] font-mono uppercase tracking-wide font-medium">
+                    Other
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.other.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="skill-tag rounded-full bg-box px-3 py-1 text-sm md:text-[1rem] shadow"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Approach = () => {
   const sectionRef = useRef(null);
@@ -11,7 +11,6 @@ const Approach = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Title animation
       gsap.from(titleRef.current, {
         y: 50,
         opacity: 0,
@@ -25,7 +24,6 @@ const Approach = () => {
         },
       });
 
-      // Phases animation
       phaseRefs.current.forEach((ref, index) => {
         if (ref) {
           const circle = ref.querySelector(".phase-circle");
@@ -95,12 +93,12 @@ const Approach = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-[#faf9f6]">
+    <section ref={sectionRef} className="py-20 md:py-32 bg-red text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <h2
             ref={titleRef}
-            className="text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-semibold tracking-tight text-center text-[#2f2a1e] mb-16"
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center mb-16"
           >
             My Approach
           </h2>
@@ -113,7 +111,7 @@ const Approach = () => {
                 className="flex flex-col md:flex-row gap-6 md:gap-8"
               >
                 <div className="flex-shrink-0">
-                  <div className="phase-circle w-16 h-16 md:w-20 md:h-20 bg-[#d4a373] text-white rounded-full flex items-center justify-center shadow-lg">
+                  <div className="phase-circle w-16 h-16 md:w-20 md:h-20 bg-box text-white rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-lg md:text-xl font-bold font-mono">
                       {index + 1}
                     </span>
@@ -121,13 +119,13 @@ const Approach = () => {
                 </div>
 
                 <div className="phase-content flex-1">
-                  <div className="text-sm font-medium text-[#b07d62] mb-2 font-mono uppercase tracking-wide">
+                  <div className="text-sm font-medium mb-2 font-mono uppercase tracking-wide">
                     {phase.phase}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-['Playfair_Display'] font-semibold text-[#2f2a1e] mb-4">
+                  <h3 className="text-xl md:text-2xl font-semibold mb-4">
                     {phase.title}
                   </h3>
-                  <p className="font-['Spectral'] text-[1.05rem] leading-relaxed text-[#5a5443]">
+                  <p className="text-[1.05rem] leading-relaxed">
                     {phase.description}
                   </p>
                 </div>

@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { gsap } from "gsap";
@@ -71,9 +72,9 @@ const Projects = () => {
       description:
         "An AI-powered app that helps you track and manage expenses with smart insights and analytics, using intelligent scripts to scan and analyze your spending patterns.",
       image: "/spendly.png",
-      technologies: ["Next.js", "Tailwind", "TypeScript", "Prisma ORM","Supabase", "Clerk"],
+      technologies: ["Next.js", "Tailwind", "TypeScript", "Prisma ORM", "Supabase", "Clerk"],
       link: "https://wealth-git-main-anujguptas-projects.vercel.app/",
-      gitlink:"https://github.com/AnujGupta-dev/Wealth"
+      gitlink: "https://github.com/AnujGupta-dev/Wealth",
     },
     {
       id: 2,
@@ -83,38 +84,27 @@ const Projects = () => {
       image: "/ai-interview.png",
       technologies: ["React.js", "Tailwind", "TypeScript", "Firebase", "Clerk"],
       link: "https://ai-mock-interview-ebba4.web.app/",
-      gitlink:"https://github.com/AnujGupta-dev/ai-interview-platform"
+      gitlink: "https://github.com/AnujGupta-dev/ai-interview-platform",
     },
     {
       id: 3,
       title: "Ghumkad Travels",
-      description:
-        "AI trip planner app that generates complete travel itineraries in seconds.",
+      description: "AI trip planner app that generates complete travel itineraries in seconds.",
       image: "/trip-planner.png",
-      technologies: [
-        "React.js",
-        "Tailwind",
-        "JavaScript",
-        "MongoDB",
-        "Node.js",
-      ],
+      technologies: ["React.js", "Tailwind", "JavaScript", "MongoDB", "Node.js"],
       link: "https://ai-travel-planner-two-beta.vercel.app/",
-      gitlink:"https://github.com/AnujGupta-dev/AI_Travel_Planner"
+      gitlink: "https://github.com/AnujGupta-dev/AI_Travel_Planner",
     },
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      id="projects"
-      className="py-20 md:py-32 bg-[#faf9f6]"
-    >
+    <section ref={sectionRef} id="projects" className="py-20 md:py-32 bg-black text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <div>
             <h2
               ref={titleRef}
-              className="text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-semibold tracking-tight text-center text-[#2f2a1e] mb-16"
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center mb-16"
             >
               Projects
             </h2>
@@ -125,7 +115,7 @@ const Projects = () => {
               <div
                 key={project.id}
                 ref={(el) => (projectRefs.current[index] = el)}
-                className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+                className="rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
               >
                 <div
                   className={cn(
@@ -135,34 +125,28 @@ const Projects = () => {
                 >
                   <div
                     className={cn(
-                      "project-image aspect-video md:aspect-square flex items-center border border-[#e5e5dc]",
+                      "project-image aspect-video md:aspect-square flex items-center",
                       index % 2 === 1 && "md:col-start-2"
                     )}
                   >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-auto p-3"
-                    />
+                    <img src={project.image} alt={project.title} className="w-full h-auto p-3" />
                   </div>
 
                   <div
                     className={cn(
-                      "project-content p-8 md:p-12 flex flex-col justify-center text-[#5a5443]",
+                      "project-content p-8 md:p-12 flex flex-col justify-center",
                       index % 2 === 1 && "md:col-start-1"
                     )}
                   >
-                    <h3 className="text-2xl md:text-3xl font-['Playfair_Display'] font-semibold mb-4 text-[#b07d62]">
+                    <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-box">
                       {project.title}
                     </h3>
-                    <p className="font-['Spectral'] mb-6 leading-relaxed text-[1.05rem]">
-                      {project.description}
-                    </p>
+                    <p className="mb-6 leading-relaxed text-[1.05rem]">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-[#d4a373] text-white rounded-full font-mono text-sm shadow"
+                          className="px-3 py-1 bg-box text-white rounded-full font-mono text-sm shadow"
                         >
                           {tech}
                         </span>
@@ -173,7 +157,7 @@ const Projects = () => {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-[#b07d62] text-white rounded-md hover:bg-[#8c5c4a] transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-box text-white rounded-md hover:bg-[#8c5c4a] transition-colors"
                       >
                         <ExternalLink size={16} />
                         Live Demo
@@ -182,7 +166,7 @@ const Projects = () => {
                         href={project.gitlink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-[#b07d62] text-[#b07d62] rounded-md hover:bg-[#f3ede5] transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2 border border-box text-box rounded-md hover:bg-[#f3ede5] transition-colors"
                       >
                         <Github size={16} />
                         View Code

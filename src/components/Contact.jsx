@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -59,19 +59,10 @@ const Contact = () => {
 
         Array.from(buttons).forEach((button) => {
           button.addEventListener("mouseenter", () => {
-            gsap.to(button, {
-              scale: 1.05,
-              duration: 0.2,
-              ease: "power2.out",
-            });
+            gsap.to(button, { scale: 1.05, duration: 0.2, ease: "power2.out" });
           });
-
           button.addEventListener("mouseleave", () => {
-            gsap.to(button, {
-              scale: 1,
-              duration: 0.2,
-              ease: "power2.out",
-            });
+            gsap.to(button, { scale: 1, duration: 0.2, ease: "power2.out" });
           });
         });
       }
@@ -81,23 +72,21 @@ const Contact = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="contact" className="py-20 md:py-32 bg-[#faf9f6]">
+    <section ref={sectionRef} id="contact" className="py-20 md:py-32 bg-black text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div>
-            <h2
-              ref={titleRef}
-              className="text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-semibold tracking-tight text-[#2f2a1e] mb-8"
-            >
-              Let&apos;s Work Together
-            </h2>
-          </div>
+          <h2
+            ref={titleRef}
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-8"
+          >
+            Let&apos;s Work Together
+          </h2>
 
           <div ref={contentRef}>
-            <p className="font-['Spectral'] text-xl md:text-2xl text-[#5a5443] mb-4">
+            <p className="text-xl md:text-2xl mb-4">
               Ready to take your digital presence to the next level?
             </p>
-            <p className="font-['Spectral'] text-lg md:text-xl text-[#5a5443] mb-12">
+            <p className="text-lg md:text-xl mb-12">
               Reach out to me today and let&apos;s discuss how I can help you achieve your goals.
             </p>
           </div>
@@ -106,7 +95,7 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
               <a
                 href="mailto:anujguptaaj123@gmail.com"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-[#b07d62] text-white rounded-lg hover:bg-[#8c5c4a] transition-colors font-['Spectral']"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-box text-white rounded-lg hover:bg-grey transition-colors"
               >
                 <Mail size={20} />
                 Get In Touch
@@ -117,7 +106,7 @@ const Contact = () => {
                   href="https://github.com/AnujGupta-dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border border-[#b07d62] text-[#b07d62] rounded-lg hover:bg-[#f3ede5] transition-colors"
+                  className="p-3 border border-box text-white rounded-lg hover:bg-grey transition-colors"
                   aria-label="GitHub Profile"
                 >
                   <Github size={20} />
@@ -126,7 +115,7 @@ const Contact = () => {
                   href="https://www.linkedin.com/in/anuj-gupta-b930a0264"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border border-[#b07d62] text-[#b07d62] rounded-lg hover:bg-[#f3ede5] transition-colors"
+                  className="p-3 border border-box text-white rounded-lg hover:bg-grey transition-colors"
                   aria-label="LinkedIn Profile"
                 >
                   <Linkedin size={20} />
@@ -135,13 +124,9 @@ const Contact = () => {
             </div>
           </div>
 
-          <div>
-            <div className="text-center">
-              <p className="font-mono text-sm text-[#5a5443]">
-                © 2025 Anuj Gupta — All Rights Reserved
-              </p>
-            </div>
-          </div>
+          <p className="text-sm font-mono text-center">
+            © 2025 Anuj Gupta — All Rights Reserved
+          </p>
         </div>
       </div>
     </section>

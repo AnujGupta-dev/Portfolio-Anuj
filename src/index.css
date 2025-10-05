@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import "tailwindcss";
 
 #root{
     overflow-x: hidden;
+}
+
+@theme{
+    /* Custom Colors */
+    --color-black: #000000;
+    --color-red: #C20634;
+    --color-pink: #E43F54;
+    --color-grey: #29474C;
+    --color-white: #ffffff;
+    --color-box: #918084;
+    
+    --font-custom: 'Poppins', sans-serif;
 }

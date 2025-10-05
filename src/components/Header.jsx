@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { cn } from '../lib/cn';
-import { Menu, X } from 'lucide-react';
-import ResumeModal from './ResumeModal';
+import { useState, useEffect } from "react";
+import { cn } from "../lib/cn";
+import { Menu, X } from "lucide-react";
+import ResumeModal from "./ResumeModal";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,18 +12,17 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id) => {
-    if (id === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       const element = document.getElementById(id);
       if (element) {
-        window.scrollTo({ top: element.offsetTop - 80, behavior: 'smooth' });
+        window.scrollTo({ top: element.offsetTop - 80, behavior: "smooth" });
       }
     }
   };
@@ -31,45 +30,41 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'py-3 bg-white/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm'
-          : 'py-5 bg-transparent'
+        "fixed top-0 left-0 right-0 z-50 py-5 transition-all duration-300 bg-transparent text-white"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
         <a
           href="#home"
-          className="text-xl font-serif font-medium tracking-tight transition-opacity hover:opacity-80 cursor-pointer text-[#2f2a1e]"
+          className="text-xl font-medium tracking-tight transition-opacity hover:opacity-80 cursor-pointer"
         >
           Anuj Gupta
         </a>
 
         <div className="hidden md:flex items-center space-x-8">
-          <NavLinks 
-            scrollToSection={scrollToSection} 
-            openResumeModal={() => setIsResumeModalOpen(true)} 
+          <NavLinks
+            scrollToSection={scrollToSection}
+            openResumeModal={() => setIsResumeModalOpen(true)}
           />
         </div>
 
         <button
-          className="md:hidden flex flex-col justify-between w-6 h-5 cursor-pointer z-50"
+          className="md:hidden flex w-6 h-5 flex-col justify-between cursor-pointer z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {!isMobileMenuOpen && <Menu />}
-          {isMobileMenuOpen && <X />}
+          {!isMobileMenuOpen ? <Menu /> : <X />}
         </button>
       </div>
-      
-      <ResumeModal 
-        isOpen={isResumeModalOpen} 
-        onClose={() => setIsResumeModalOpen(false)} 
+
+      <ResumeModal
+        isOpen={isResumeModalOpen}
+        onClose={() => setIsResumeModalOpen(false)}
       />
 
       <div
         className={cn(
-          "fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 transition-transform duration-500 ease-in-out transform md:hidden",
+          "fixed inset-0 z-40 flex flex-col pt-24 px-6 bg-white transition-transform duration-500 ease-in-out transform md:hidden",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -78,42 +73,51 @@ const Header = () => {
           onClick={() => setIsMobileMenuOpen(false)}
           aria-label="Close menu"
         >
-          <span className="block w-6 h-0.5 bg-[#faf9f6] rotate-45 translate-y-0.5" />
-          <span className="block w-6 h-0.5 bg-[#faf9f6] -rotate-45" />
+          <span className="block w-6 h-0.5 bg-white rotate-45 translate-y-0.5" />
+          <span className="block w-6 h-0.5 bg-white -rotate-45" />
         </button>
 
         <nav className="flex flex-col space-y-6 text-lg">
           <a
             href="#home"
-            className="hover:text-amber-600 transition-colors cursor-pointer"
+            className="transition-colors hover:text-red cursor-pointer"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Home
           </a>
           <button
-            className="text-left hover:text-amber-600 transition-colors cursor-pointer"
-            onClick={() => { 
-              setIsResumeModalOpen(true); 
-              setIsMobileMenuOpen(false); 
+            className="text-left transition-colors hover:text-red cursor-pointer"
+            onClick={() => {
+              setIsResumeModalOpen(true);
+              setIsMobileMenuOpen(false);
             }}
           >
             Resume
           </button>
           <button
-            className="text-left hover:text-orangery-600 transition-colors cursor-pointer"
-            onClick={() => { scrollToSection('about'); setIsMobileMenuOpen(false); }}
+            className="text-left transition-colors hover:text-red cursor-pointer"
+            onClick={() => {
+              scrollToSection("about");
+              setIsMobileMenuOpen(false);
+            }}
           >
             About
           </button>
           <button
-            className="text-left hover:text-orangery-600 transition-colors cursor-pointer"
-            onClick={() => { scrollToSection('projects'); setIsMobileMenuOpen(false); }}
+            className="text-left transition-colors hover:text-red cursor-pointer"
+            onClick={() => {
+              scrollToSection("projects");
+              setIsMobileMenuOpen(false);
+            }}
           >
             Projects
           </button>
           <button
-            className="text-left hover:text-orangery-600 transition-colors cursor-pointer"
-            onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false); }}
+            className="text-left transition-colors hover:text-red cursor-pointer"
+            onClick={() => {
+              scrollToSection("contact");
+              setIsMobileMenuOpen(false);
+            }}
           >
             Contact
           </button>
@@ -126,33 +130,32 @@ const Header = () => {
 const NavLinks = ({ scrollToSection, openResumeModal }) => (
   <>
     <button
-      className="text-sm font-medium hover:text-amber-600 transition-colors cursor-pointer"
-      onClick={() => scrollToSection('home')}
+      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
+      onClick={() => scrollToSection("home")}
     >
       Home
     </button>
     <button
-      className="text-sm font-medium hover:text-amber-500 transition-colors"
+      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
       onClick={openResumeModal}
     >
       Resume
     </button>
-
     <button
-      className="text-sm font-medium hover:text-amber-600 transition-colors cursor-pointer"
-      onClick={() => scrollToSection('about')}
+      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
+      onClick={() => scrollToSection("about")}
     >
       About
     </button>
     <button
-      className="text-sm font-medium hover:text-orangery-600 transition-colors cursor-pointer"
-      onClick={() => scrollToSection('projects')}
+      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
+      onClick={() => scrollToSection("projects")}
     >
       Projects
     </button>
     <button
-      className="text-sm font-medium hover:text-orangery-600 transition-colors cursor-pointer"
-      onClick={() => scrollToSection('contact')}
+      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
+      onClick={() => scrollToSection("contact")}
     >
       Contact
     </button>
