@@ -36,14 +36,20 @@ const JohnWick = () => {
     >
       <img
         src="/JohnWick.png"
-        className="absolute top-0 left-0 h-screen w-screen object-cover"
+        className="hidden md:block absolute top-0 left-0 w-full h-full object-cover"
         alt="John Wick"
+      />
+
+      <img
+        src="/JohnWick-mobile.png"
+        className="block md:hidden absolute top-0 left-0 w-full h-full "
+        alt="John Wick Mobile"
       />
 
       <img
         src="/car.png"
         ref={carRef}
-        className="absolute bottom-[30%] right-0 z-10 w-[400px] bg-transparent"
+        className="absolute bottom-[20%] right-0 z-10 w-[50vw] max-w-[250px] md:max-w-[400px] h-auto"
         alt="Car"
       />
     </div>

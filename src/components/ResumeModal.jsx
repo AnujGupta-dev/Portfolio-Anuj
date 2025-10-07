@@ -12,8 +12,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
           </h3>
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-box transition-colors"
-            aria-label="Close"
+            className="p-2 rounded-full bg-box transition-colors"
           >
             <X size={20} />
           </button>
@@ -31,7 +30,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
         <div className="p-4 border-t border-gray-200 flex justify-end gap-3">
           <button
             onClick={onClose}
-            className="px-4 py-2 border border-box rounded-lg hover:bg-box transition-colors"
+            className="px-4 py-2 border border-box rounded-lg bg-box transition-colors"
           >
             Close
           </button>

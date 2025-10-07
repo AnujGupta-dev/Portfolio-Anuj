@@ -59,8 +59,6 @@ const Approach = () => {
           gsap.to(circle, {
             scale: 1.1,
             duration: 2,
-            repeat: -1,
-            yoyo: true,
             ease: "power2.inOut",
             delay: index * 0.3,
           });
