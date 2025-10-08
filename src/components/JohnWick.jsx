@@ -41,7 +41,7 @@ const JohnWick = () => {
       />
 
       <img
-        src="/JohnWick-mobile.png"
+        src="/JohnWick-mobile2.png"
         className="block md:hidden absolute top-0 left-0 w-full h-full "
         alt="John Wick Mobile"
       />
