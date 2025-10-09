@@ -27,10 +27,18 @@ const Header = () => {
     }
   };
 
+  const navItems = [
+    { name: "Home", action: () => scrollToSection("home") },
+    { name: "Resume", action: () => setIsResumeModalOpen(true) },
+    { name: "About", action: () => scrollToSection("about") },
+    { name: "Projects", action: () => scrollToSection("projects") },
+    { name: "Contact", action: () => scrollToSection("contact") },
+  ];
+
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 py-5 transition-all duration-300 bg-transparent text-white"
+        "fixed top-0 left-0 right-0 z-50 py-5 transition-all duration-300 bg-black border-b-4 border-gray-400 text-white"
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
@@ -42,10 +50,15 @@ const Header = () => {
         </a>
 
         <div className="hidden md:flex items-center space-x-8">
-          <NavLinks
-            scrollToSection={scrollToSection}
-            openResumeModal={() => setIsResumeModalOpen(true)}
-          />
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              className="text-sm font-medium transition-colors hover:text-black cursor-pointer"
+              onClick={item.action}
+            >
+              {item.name}
+            </button>
+          ))}
         </div>
 
         <button
@@ -53,7 +66,7 @@ const Header = () => {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {!isMobileMenuOpen ? <Menu /> : <X />}
+          {!isMobileMenuOpen ? <Menu /> : <X className="text-black" />}
         </button>
       </div>
 
@@ -64,7 +77,7 @@ const Header = () => {
 
       <div
         className={cn(
-          "fixed inset-0 z-40 flex flex-col pt-24 px-6 bg-white transition-transform duration-500 ease-in-out transform md:hidden",
+          "fixed inset-0 z-40 flex flex-col pt-24 px-6 bg-white text-black transition-transform duration-500 ease-in-out transform md:hidden",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -78,88 +91,22 @@ const Header = () => {
         </button>
 
         <nav className="flex flex-col space-y-6 text-lg">
-          <a
-            href="#home"
-            className="transition-colors hover:text-red cursor-pointer"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Home
-          </a>
-          <button
-            className="text-left transition-colors hover:text-red cursor-pointer"
-            onClick={() => {
-              setIsResumeModalOpen(true);
-              setIsMobileMenuOpen(false);
-            }}
-          >
-            Resume
-          </button>
-          <button
-            className="text-left transition-colors hover:text-red cursor-pointer"
-            onClick={() => {
-              scrollToSection("about");
-              setIsMobileMenuOpen(false);
-            }}
-          >
-            About
-          </button>
-          <button
-            className="text-left transition-colors hover:text-red cursor-pointer"
-            onClick={() => {
-              scrollToSection("projects");
-              setIsMobileMenuOpen(false);
-            }}
-          >
-            Projects
-          </button>
-          <button
-            className="text-left transition-colors hover:text-red cursor-pointer"
-            onClick={() => {
-              scrollToSection("contact");
-              setIsMobileMenuOpen(false);
-            }}
-          >
-            Contact
-          </button>
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              className="text-left transition-colors hover:text-red cursor-pointer"
+              onClick={() => {
+                item.action();
+                setIsMobileMenuOpen(false);
+              }}
+            >
+              {item.name}
+            </button>
+          ))}
         </nav>
       </div>
     </header>
   );
 };
-
-const NavLinks = ({ scrollToSection, openResumeModal }) => (
-  <>
-    <button
-      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
-      onClick={() => scrollToSection("home")}
-    >
-      Home
-    </button>
-    <button
-      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
-      onClick={openResumeModal}
-    >
-      Resume
-    </button>
-    <button
-      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
-      onClick={() => scrollToSection("about")}
-    >
-      About
-    </button>
-    <button
-      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
-      onClick={() => scrollToSection("projects")}
-    >
-      Projects
-    </button>
-    <button
-      className="text-sm font-medium transition-colors hover:text-red cursor-pointer"
-      onClick={() => scrollToSection("contact")}
-    >
-      Contact
-    </button>
-  </>
-);
 
 export default Header;
